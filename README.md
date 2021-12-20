@@ -33,6 +33,7 @@
     <li><a href="#uml-diagram">UML Diagram</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
+    <li><a href="#models">Models</a></li>
     <li><a href="#api-documentation">API Documentation</a></li>
     <li><a href="#error-handling">Error Handling</a></li>
    </ul>
@@ -133,6 +134,8 @@ $ npm run dev
 ```
 
 ## Project Structure
+
+## Models
 
 ## API Documentation
 
