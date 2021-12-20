@@ -52,6 +52,58 @@
 
 
 ## User Stories 
+- As a user, I can register for the website by entering my username, phone number and password
+
+- As a user, I will receive a confirmation SMS once I have registered for the website
+
+- As a user, I am required to enter a strong password when creating my account
+
+- Acceptance criteria:
+  - Must have at least 8 characters
+  - Must contain at least 1 digit
+  - Must contain at least 1 uppercase letter
+  - Must contain at least 1 lowercase letter
+  - Must contain at least 1 symbol
+
+- As a user, I am required to enter a valid phone format when creating my account
+
+- As a user, I can log into the website by entering my username or phone number and password
+
+- As a user, I can reset my password if I have forgotten my password
+
+- As a user, I can logout from the platform so no one else can use it
+
+- As a user, I can view my profile and others profile
+
+- As a user, I can change my password. I will receive a confirmation email to my email
+
+- As a user, I can add my email. I will receive a confirmation email to my email
+
+- As a user, I can view my ads and ratings
+
+- As a user, I can add ads.
+
+- Acceptance criteria:
+  - Must have select type of ads.
+  - Must have description
+  - Must have available time
+  - Must have image
+
+- As a user, I can delete, edit my ads.
+
+- As a user, I can rating and review a user who I rent from
+
+- As a user, I can rating and review a user who I rent from me
+
+- As a user, I can search for ads. by city and type
+
+- As a user, I can chatting another user
+
+- As an admin,  I can confirm, delete, edit, create users
+
+- As an admin,  I can delete, edit ads.
+
+- As an admin,  I can delete, edit rating
 
 ## Entity Relationship Diagram 
 
