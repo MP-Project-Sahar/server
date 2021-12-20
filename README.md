@@ -258,7 +258,7 @@ $ npm run dev
 | `GET /favorite`         | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `GET /bills`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `GET /userProfile/:id`  | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| `GET /userItems/:id`.   | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /userItems/:id`    | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `GET /userReview/:id`   | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `GET /:Category`        | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `POST /item`            | {CoverImg, Img, Title, Category, Description, PriceDay, PriceWeek, PriceMonth, PostCode}| ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
