@@ -217,11 +217,19 @@ $ npm run dev
 
 ➤ Login and Signin
 
-| Endpoints           | Request Body                              | Success status                                               | Error Status                                                        |
-| ------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
-| `POST /auth/login`  | {email, password}                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| `POST /auth/sigin`  | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
+| ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `POST /login`           | {email, password}                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /sigin`           | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /activateAccount` | {token}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `PUT /forgotPassword`   | {email}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `PUT /resetPassword`    | {newPassword}                             | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
+➤ Role
+| Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
+| ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `POST /createRole`      | {role, permission}                        | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `Get /roles`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
 ## Error Handling
 
