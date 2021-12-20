@@ -39,7 +39,7 @@
 
 
 
-## 🔖 About <a name = "about"></a>
+## About <a name = "about"></a>
 
 ### 🎯 Features
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
