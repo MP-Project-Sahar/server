@@ -27,15 +27,15 @@
 <details>
   <summary>Table of Contents</summary>
 ## 📝 Table of Contents
-+ [About](#about)
+- [About](#about)
    - Features
-+ [User Stories](#user)
-+ [Entity Relationship Diagram](#ER) 
-+ [UML Diagram](#UML) 
-+ [Getting started](#start) 
-+ [Project Structure](#structure)
-+ [API Documentation](#API)
-+ [Error Handling](#error)
+- [User Stories](#user)
+- [Entity Relationship Diagram](#ER) 
+- [UML Diagram](#UML) 
+- [Getting started](#start) 
+- [Project Structure](#structure)
+- [API Documentation](#API)
+- [Error Handling](#error)
 </details>
 
 
