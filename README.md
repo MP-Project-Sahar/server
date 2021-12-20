@@ -64,16 +64,16 @@ To build and run this app locally you will need a few things:
 - Install [MongoDB](https://docs.mongodb.com/manual/installation/)
 - Install [VS Code](https://code.visualstudio.com/)
 
-- Clone the repository
+Clone the repository
 ```
 git clone <project_name>
 ```
-- Install dependencies
+Install dependencies
 ```
 cd <project_name>
 npm install
 ```
-- Start the local server
+Start the local server
 ```
 npm run dev
 `
