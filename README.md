@@ -16,9 +16,9 @@
     <br />
     <a href="https://github.com">Demo</a>
     ·
-    <a href="https://github.com">Trello</a>
+    <a href="https://trello.com/b/79ifE5eG/mp-project-sahar">Trello</a>
     ·
-    <a href="https://github.com">Slides</a>
+    <a href="https://github.com/MP-Project-Sahar/clinet">Clinet</a>
   </p>
 </div>
 
@@ -67,16 +67,16 @@ To build and run this app locally you will need a few things:
 
 Clone the repository
 ```
-git clone <project_name>
+$ git clone <project_name>
 ```
-Install dependencies
+Install dependencies. [`npm`](https://www.npmjs.com/) installed in your system.
 ```
 cd <project_name>
-npm install
+$ npm install
 ```
 Start the local server
 ```
-npm run dev
+$ npm run dev
 ```
 
 ## Project Structure
