@@ -14,7 +14,7 @@
     <a href="https://github.com/MP-Project-Sahar/server"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com">View Demo</a>
+    <a href="https://github.com">Demo</a>
     ·
     <a href="https://github.com">Trello</a>
     ·
@@ -61,7 +61,7 @@
 
 ## 🧱 Application Structure <a name = "structure"></a>
 
-## 📒 API Documentation <a name = "API"></a>
+## API Documentation <a name = "API"></a>
 
 ## ⚠️ Error Handling <a name = "error"></a>
 
