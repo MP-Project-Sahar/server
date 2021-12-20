@@ -79,7 +79,7 @@ Start the local server
 npm run dev
 ```
 
-## Application Structure
+## Project Structure
 
 ## API Documentation
 
