@@ -30,9 +30,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="#user-stories">User Stories</a></li>
     <li><a href="#entity-relationship-diagram">Entity Relationship Diagram</a></li>
-    <li><a href="#UML-diagram">UML Diagram</a></li>
+    <li><a href="#uml-diagram">UML Diagram</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
-    <li><a href="#API-documentation">API Documentation</a></li>
+    <li><a href="#api-documentation">API Documentation</a></li>
     <li><a href="#error-handling">Error Handling</a></li>
    </ul>
 </details>
