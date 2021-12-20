@@ -109,7 +109,7 @@
 
 ## Entity Relationship Diagram
 
-<img src="https://user-images.githubusercontent.com/92248067/146760708-4c3121ce-2bfb-4060-add7-0cf4242a1da1.jpg" width="500">
+<img src="https://user-images.githubusercontent.com/92248067/146804464-a25f550d-eed6-42e7-b43f-a4d8220a1abc.jpg" width="500">
 
 ## UML Diagram
 
@@ -204,6 +204,14 @@ $ npm run dev
 | rate              | Number               | Required            | -                |
 | Reviw             | String               | -                   | -                |
 | timestamp         | Date                 | Default             | Now Date         |
+
+➤ Favorite
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| User              | Schema               | -                   | -                |
+| ItemLiked         | Schema               | -                   | -                |
+| UserLiked         | Schema               | -                   | -                |
 
 ## API Documentation
 
