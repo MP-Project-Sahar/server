@@ -217,10 +217,10 @@ $ npm run dev
 
 ➤ Login and Signin
 
-| HTTP Method | URL            | Request Body                              | Success status                                               | Error Status                                                        |
-| ----------- | -------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
-| POST        | `/auth/login`  | {email, password}                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| POST        | `/auth/login`  | {email, password, fristName, lastName}    | 200            | 404          |
+| Endpoints           | Request Body                              | Success status                                               | Error Status                                                        |
+| ------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `POST /auth/login`  | {email, password}                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /auth/sigin`  | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
 
 ## Error Handling
