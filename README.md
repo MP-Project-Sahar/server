@@ -77,7 +77,7 @@ npm install
 Start the local server
 ```
 npm run dev
-`
+```
 
 ## Application Structure
 
