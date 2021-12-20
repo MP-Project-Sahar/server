@@ -39,7 +39,7 @@
 
 
 
-## About <a name = "about"></a>
+## About
 
 ### 🎯 Features
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
@@ -67,4 +67,5 @@
 
 
 
+<p align="right"><a href="#top">back to top</a></p>
 
