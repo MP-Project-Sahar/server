@@ -215,21 +215,32 @@ $ npm run dev
 
 ## API Documentation
 
-➤ Login and Signin
+➤ Login and Signup
 
 | Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
 | ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
 | `POST /login`           | {email, password}                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| `POST /sigin`           | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| `POST /activateAccount` | {token}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /sigup`           | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /verification`    | {phoneNumber}                             | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /verificationCode`| {code}                                    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `PUT /forgotPassword`   | {email}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `PUT /resetPassword`    | {newPassword}                             | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
 ➤ Role
+
 | Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
 | ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
 | `POST /createRole`      | {role, permission}                        | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
-| `Get /roles`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /roles`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+
+➤ Admin
+
+| Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
+| ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `GET /users`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /user`            | {email, password, fristName, lastName}    | ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `PUT /user`             | {email, password, fristName, lastName}    | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `PUT /item`             | {CoverImg, Img, Title, Category, Description, PriceDay, PriceWeek, PriceMonth, PostCode, Available, isDel}| ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
 ## Error Handling
 
