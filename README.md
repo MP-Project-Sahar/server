@@ -44,7 +44,7 @@
 ### 🎯 Features
 - **NoSQL database**: [MongoDB](https://www.mongodb.com) object data modeling using [Mongoose](https://mongoosejs.com)
 - **Logging**: using [morgan](https://github.com/expressjs/morgan)
-- - **Error handling**: centralized error handling mechanism
+- **Error handling**: centralized error handling mechanism
 - **Environment variables**: using [dotenv](https://github.com/motdotla/dotenv)
 - **Security**: set security HTTP headers using [helmet](https://helmetjs.github.io)
 - **CORS**: Cross-Origin Resource-Sharing enabled using [cors](https://github.com/expressjs/cors)
@@ -58,6 +58,25 @@
 ## UML Diagram
 
 ## Getting started
+### Pre-reqs
+To build and run this app locally you will need a few things:
+- Install [Node.js](https://nodejs.org/en/)
+- Install [MongoDB](https://docs.mongodb.com/manual/installation/)
+- Install [VS Code](https://code.visualstudio.com/)
+
+- Clone the repository
+```
+git clone <project_name>
+```
+- Install dependencies
+```
+cd <project_name>
+npm install
+```
+- Start the local server
+```
+npm run dev
+`
 
 ## Application Structure
 
