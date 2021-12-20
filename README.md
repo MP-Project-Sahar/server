@@ -25,17 +25,16 @@
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
 <details>
-  <summary>Table of Contents</summary>
-## 📝 Table of Contents
-- [About](#about)
-   - Features
-- [User Stories](#user)
-- [Entity Relationship Diagram](#ER) 
-- [UML Diagram](#UML) 
-- [Getting started](#start) 
-- [Project Structure](#structure)
-- [API Documentation](#API)
-- [Error Handling](#error)
+  <summary>📝 Table of Contents</summary>
+    <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#user-stories">User Stories</a></li>
+    <li><a href="#entity-relationship-diagram">Entity Relationship Diagram</a></li>
+    <li><a href="#UML-diagram">UML Diagram</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#API-documentation">API Documentation</a></li>
+    <li><a href="#error-handling">Error Handling</a></li>
+   </ul>
 </details>
 
 
