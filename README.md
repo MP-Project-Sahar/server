@@ -247,6 +247,29 @@ $ npm run dev
 | `DELETE /item`          | {isDel}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
 | `DELETE /review`        | {isDel}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
 
+➤ User
+
+| Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
+| ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `GET /:Category`        | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /profile`          | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /items`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /review`           | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /favorite`         | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /bills`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /userProfile/:id`  | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /userItems/:id`.   | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /userReview/:id`   | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `GET /:Category`        | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /item`            | {CoverImg, Img, Title, Category, Description, PriceDay, PriceWeek, PriceMonth, PostCode}| ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /review`          | {User, Rate, Review}                      | ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /bill`            | {Item, Owner, StartDate, EndDate, Price}  | ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /favorite`        | {ItemLiked, UserLiked}                    | ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `PUT /item`             | {CoverImg, Img, Title, Category, Description, PriceDay, PriceWeek, PriceMonth, PostCode}| ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
+| `PUT /profile`          | {FirstName, LastName, Avatar, City, Bio}  | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
+| `PUT /unable`           | {Active}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
+| `DELETE /item`          | {isDel}                                   | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![304](https://labl.es/svg?text=304&bgcolor=ee0701)|
+
 
 ## Error Handling
 
