@@ -53,17 +53,17 @@
 
 ## 👤💬 User Stories <a name = "user"></a>
 
-## 🔀 Entity Relationship Diagram <a name = "ER"></a>
+## Entity Relationship Diagram <a name = "ER"></a>
 
-## 🔃 UML Diagram <a name = "UML"></a>
+## UML Diagram <a name = "UML"></a>
 
-## 🚀 Getting started <a name = "start"></a>
+## Getting started <a name = "start"></a>
 
-## 🧱 Application Structure <a name = "structure"></a>
+## Application Structure <a name = "structure"></a>
 
 ## API Documentation <a name = "API"></a>
 
-## ⚠️ Error Handling <a name = "error"></a>
+## Error Handling <a name = "error"></a>
 
 
 
