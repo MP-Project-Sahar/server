@@ -107,7 +107,9 @@
 
 - As an admin,  I can delete, edit rating
 
-## Entity Relationship Diagram 
+## Entity Relationship Diagram
+
+<img src="https://user-images.githubusercontent.com/92248067/146754964-60efff25-0550-42f1-bca1-13e3ce33c858.jpg" width="500">
 
 ## UML Diagram
 
