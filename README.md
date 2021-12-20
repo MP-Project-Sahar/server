@@ -51,19 +51,19 @@
 - **Linting**: with [Prettier](https://prettier.io)
 
 
-## 👤💬 User Stories <a name = "user"></a>
+## User Stories 
 
-## Entity Relationship Diagram <a name = "ER"></a>
+## Entity Relationship Diagram 
 
-## UML Diagram <a name = "UML"></a>
+## UML Diagram
 
-## Getting started <a name = "start"></a>
+## Getting started
 
-## Application Structure <a name = "structure"></a>
+## Application Structure
 
-## API Documentation <a name = "API"></a>
+## API Documentation
 
-## Error Handling <a name = "error"></a>
+## Error Handling
 
 
 
