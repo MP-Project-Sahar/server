@@ -109,7 +109,7 @@
 
 ## Entity Relationship Diagram
 
-<img src="https://user-images.githubusercontent.com/92248067/146754964-60efff25-0550-42f1-bca1-13e3ce33c858.jpg" width="500">
+<img src="https://user-images.githubusercontent.com/92248067/146760708-4c3121ce-2bfb-4060-add7-0cf4242a1da1.jpg" width="500">
 
 ## UML Diagram
 
@@ -138,6 +138,72 @@ $ npm run dev
 ## Project Structure
 
 ## Models
+
+➤ User
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| Email             | String               | Required, Unique    | -                |
+| Password          | String               | Required            | -                |
+| FirstName         | String               | Required            | -                |
+| LastName          | String               | Required            | -                |
+| PhoneNum          | Number               | Required, Unique    | -                |
+| Avatar            | String               | Default             | Img URL          |
+| City              | String               | -                   | -                |
+| Bio               | String               | -                   | -                |
+| Role              | Schema               | Default             | User role        |
+| Active            | Boolean              | Default             | False            |
+| VerifyCode        | Number               | Unique              | -                |
+| isDel             | Boolean              | Default             | False            |
+| timestamp         | Date                 | Default             | Now Date         |
+
+➤ Item
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| CoverImg          | String               | Required            | -                |
+| Img               | Array                | -                   | -                |
+| Title             | String               | Required            | -                |
+| Category          | String               | -                   | -                |
+| Description       | Number               | Required            | -                |
+| PriceDay          | Number               | Required            | -                |
+| PriceWeek         | Number               | -                   | -                |
+| PriceMonth        | Number               | -                   | -                |
+| PostCode          | Number               | Required            | -                |
+| Renter            | Schema               | -                   | -                |
+| Available         | Boolean              | Default             | False            |
+| isDel             | Boolean              | Default             | False            |
+| timestamp         | Date                 | Default             | Now Date         |
+
+➤ Role
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| Role              | String               | -                   | -                |
+| Permissions       | Array                | -                   | -                |
+
+➤ Bill
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| Item              | Schema               | -                   | -                |
+| Renter            | Schema               | -                   | -                |
+| Owner             | Schema               | -                   | -                |
+| StartDate         | Date                 | -                   | -                |
+| EndDate           | Date                 | -                   | -                |
+| Price             | Number               | -                   | -                |
+| Checkedout        | Boolean              | Default             | False            |
+| timestamp         | Date                 | Default             | Now Date         |
+
+➤ Review
+
+| Key               | Type                 | Options             | Default value    |
+| ----------------- | -------------------- | ------------------- | ---------------- |
+| User              | Schema               | -                   | -                |
+| Reviwer           | Schema               | -                   | -                |
+| rate              | Number               | Required            | -                |
+| Reviw             | String               | -                   | -                |
+| timestamp         | Date                 | Default             | Now Date         |
 
 ## API Documentation
 
