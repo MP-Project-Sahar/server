@@ -113,6 +113,9 @@
 
 ## UML Diagram
 
+<img src="https://user-images.githubusercontent.com/92248067/146837091-2b2558ca-eae1-4841-9280-53eb7023603e.jpg" width="500">
+
+
 ## Getting started
 ### Pre-reqs
 To build and run this app locally you will need a few things:
