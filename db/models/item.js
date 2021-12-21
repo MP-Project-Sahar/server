@@ -10,9 +10,9 @@ const itemSchema = new mongoose.Schema({
   priceWeek: { type: Number },
   priceMonth: { type: Number },
   postCode: { type: Number, required: true },
-  available: { type: Boolean, required: true, default: false },
-  Renter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  isDel: { type: Boolean, required: true, default: false },
+  available: { type: Boolean, default: false },
+  renter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  isDel: { type: Boolean, default: false },
   timestamp: { type: Date, default: Date.now }
 });
 
