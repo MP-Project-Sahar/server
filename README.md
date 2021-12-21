@@ -167,7 +167,7 @@ $ npm run dev
 | CoverImg          | String               | Required            | -                |
 | Img               | Array                | -                   | -                |
 | Title             | String               | Required            | -                |
-| Category          | String               | -                   | -                |
+| Category          | String               | Required            | -                |
 | Description       | Number               | Required            | -                |
 | PriceDay          | Number               | Required            | -                |
 | PriceWeek         | Number               | -                   | -                |
