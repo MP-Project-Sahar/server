@@ -5,8 +5,8 @@ const billSchema = new mongoose.Schema({
   renter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   owner: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   price: { type: Number },
-  startDate: { type: Date, default: Date.now },
-  endDate: { type: Date, default: Date.now },
+  startDate: { type: Date },
+  endDate: { type: Date },
   checkedout: { type: Boolean, default: false },
   timestamp: { type: Date, default: Date.now }
 });
