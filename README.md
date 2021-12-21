@@ -202,7 +202,7 @@ $ npm run dev
 
 | Key               | Type                 | Options             | Default value    |
 | ----------------- | -------------------- | ------------------- | ---------------- |
-| User              | Schema               | -                   | -                |
+| Owner             | Schema               | -                   | -                |
 | Reviwer           | Schema               | -                   | -                |
 | rate              | Number               | Required            | -                |
 | Reviw             | String               | -                   | -                |
