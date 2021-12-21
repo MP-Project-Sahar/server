@@ -216,6 +216,7 @@ $ npm run dev
 | User              | Schema               | -                   | -                |
 | ItemLiked         | Schema               | -                   | -                |
 | UserLiked         | Schema               | -                   | -                |
+| timestamp         | Date                 | Default             | Now Date         |
 
 ## API Documentation
 
