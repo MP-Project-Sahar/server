@@ -1,5 +1,6 @@
 const userModel = require("./../../db/models/user");
 const itemModel = require("./../../db/models/item");
+const reviewModel = require("./../../db/models/review");
 
 // Show all users
 const users = (req, res) => {
@@ -82,4 +83,21 @@ const editItem = (req, res) => {
     });
 };
 
-module.exports = { users, editUser, editItem };
+const editReview = (req, res) => {
+  const { id, owner, renter, rate, review, isDel } = req.body;
+
+  reviewModel
+    .findOneAndUpdate(
+      { _id: id },
+      { owner, renter, rate, review, isDel },
+      { new: true }
+    )
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(304).send(err);
+    });
+};
+
+module.exports = { users, editUser, editItem, editReview };
