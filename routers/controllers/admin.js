@@ -13,4 +13,30 @@ const users = (req, res) => {
     });
 };
 
-module.exports = { users };
+const editUser = (req, res) => {
+  const {
+    id,
+    email,
+    password,
+    fristName,
+    lastName,
+    phoneNumber,
+    active,
+    isDel
+  } = req.body;
+
+  userModel
+    .findOneAndUpdate(
+      { _id: id },
+      { email, password, fristName, lastName, phoneNumber, active, isDel },
+      { new: true }
+    )
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(304).send(err);
+    });
+};
+
+module.exports = { users, editUser };
