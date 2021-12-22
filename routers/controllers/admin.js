@@ -15,6 +15,7 @@ const users = (req, res) => {
     });
 };
 
+// Edit user information
 const editUser = (req, res) => {
   const {
     id,
@@ -41,6 +42,7 @@ const editUser = (req, res) => {
     });
 };
 
+// Edit item information
 const editItem = (req, res) => {
   const {
     id,
@@ -83,15 +85,12 @@ const editItem = (req, res) => {
     });
 };
 
+// Edit review information
 const editReview = (req, res) => {
-  const { id, owner, renter, rate, review, isDel } = req.body;
+  const { id, rate, review, isDel } = req.body;
 
   reviewModel
-    .findOneAndUpdate(
-      { _id: id },
-      { owner, renter, rate, review, isDel },
-      { new: true }
-    )
+    .findOneAndUpdate({ _id: id }, { owner, review, isDel }, { new: true })
     .then((result) => {
       res.status(200).send(result);
     })
