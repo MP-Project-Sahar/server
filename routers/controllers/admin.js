@@ -1,4 +1,5 @@
 const userModel = require("./../../db/models/user");
+const itemModel = require("./../../db/models/item");
 
 // Show all users
 const users = (req, res) => {
@@ -39,4 +40,46 @@ const editUser = (req, res) => {
     });
 };
 
-module.exports = { users, editUser };
+const editItem = (req, res) => {
+  const {
+    id,
+    coverImg,
+    img,
+    title,
+    category,
+    desc,
+    priceDay,
+    priceWeek,
+    priceMonth,
+    postCode,
+    available,
+    isDel
+  } = req.body;
+
+  itemModel
+    .findOneAndUpdate(
+      { _id: id },
+      {
+        coverImg,
+        img,
+        title,
+        category,
+        desc,
+        priceDay,
+        priceWeek,
+        priceMonth,
+        postCode,
+        available,
+        isDel
+      },
+      { new: true }
+    )
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(304).send(err);
+    });
+};
+
+module.exports = { users, editUser, editItem };
