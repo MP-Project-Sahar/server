@@ -235,7 +235,7 @@ $ npm run dev
 
 | Endpoint                | Request Body                              | Success status                                               | Error Status                                                        |
 | ----------------------- | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
-| `POST /createRole`      | {role, permission}                        | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
+| `POST /createRole`      | {role, permission}                        | ![201](https://labl.es/svg?text=201&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 | `GET /roles`            | -                                         | ![200](https://labl.es/svg?text=200&bgcolor=128A0C)| ![400](https://labl.es/svg?text=400&bgcolor=ee0701)|
 
 ➤ Admin
