@@ -4,6 +4,11 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 const secret = process.env.secretKey;
 
+const mailgun = require("mailgun-js");
+const DOMAIN = "sandbox093b95b4aa3d4d5abdba1595e7d10442.mailgun.org";
+const mg = mailgun({ apiKey: process.env.api_key, domain: DOMAIN });
+
+
 // Check if email exist
 const checkEmail = (req, res) => {
   const savedEmail = email.toLowerCase();
@@ -85,7 +90,7 @@ const login = (req, res) => {
     });
 };
 
-// forgot password
+// Forgot password
 const forgotPassword = (req, res) => {
   const { email } = req.body;
 
@@ -129,4 +134,42 @@ const forgotPassword = (req, res) => {
     });
 };
 
-module.exports = { checkEmail, signup, login, forgotPassword };
+// Reset password
+const resetPassword = async (req, res) => {
+  const { resetLink, newPass } = req.body;
+
+  const hashedPassword = await bcrypt.hash(newPass, Number(process.env.SALT));
+
+  if (resetLink) {
+    jwt.verify(resetLink, secret, (err) => {
+      if (err) {
+        res.status(401).send("Incorrect or expired link");
+      } else {
+        userModel
+          .findOne({ resetLink })
+          .then((result) => {
+            if (result) {
+              userModel
+                .findOneAndUpdate(
+                  { resetLink },
+                  { password: hashedPassword, resetLink: "" }
+                )
+                .then(() => {
+                  res.status(200).send("Reset successfully✅");
+                })
+                .catch((err) => {
+                  res.status(400).send(err);
+                });
+            }
+          })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+      }
+    });
+  } else {
+    res.status(401).send("Authentication error");
+  }
+};
+
+module.exports = { checkEmail, signup, login, forgotPassword, resetPassword };
