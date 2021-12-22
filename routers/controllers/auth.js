@@ -1,6 +1,10 @@
 const userModel = require("./../../db/models/user");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
+const secret = process.env.secretKey;
 
+// Check if email exist
 const checkEmail = (req, res) => {
   const savedEmail = email.toLowerCase();
   userModel
@@ -17,6 +21,7 @@ const checkEmail = (req, res) => {
     });
 };
 
+// Signup
 const signup = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
@@ -40,6 +45,7 @@ const signup = async (req, res) => {
     });
 };
 
+// Login
 const login = (req, res) => {
   const { email, password } = req.body;
 
@@ -79,4 +85,48 @@ const login = (req, res) => {
     });
 };
 
-module.exports = { checkEmail, signup, login };
+// forgot password
+const forgotPassword = (req, res) => {
+  const { email } = req.body;
+
+  const savedEmail = email.toLowerCase();
+
+  userModel
+    .findOne({ email: savedEmail })
+    .then(async (result) => {
+      const payload = {
+        _id: result._id,
+        email: savedEmail
+      };
+      const options = { expiresIn: "1h" };
+      const token = await jwt.sign(payload, secret, options);
+
+      const data = {
+        from: "norelay@myFirstEmail.com",
+        to: savedEmail,
+        subject: "Reset Passwoed",
+        html: `<h2>Reset Password</h2>
+          <a href="${process.env.URL}/resetPassword">Reset your password</a>
+          `
+      };
+      userModel
+        .findOneAndUpdate({ email: savedEmail }, { resetLink: token })
+        .then(() => {
+          mg.messages().send(data, (error) => {
+            if (error) {
+              res.status(400).send(error);
+            } else {
+              res.status(200).send({ token });
+            }
+          });
+        })
+        .catch((err) => {
+          res.status(400).send(err);
+        });
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
+module.exports = { checkEmail, signup, login, forgotPassword };
