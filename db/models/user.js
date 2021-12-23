@@ -22,12 +22,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: 20
   },
-  phoneNumber: {
-    type: Number,
-    required: true,
-    unique: true,
-    required: true
-  },
+  phoneNumber: { type: String, unique: true },
   avatar: {
     type: String,
     default:
@@ -40,11 +35,11 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   active: { type: Boolean, default: false },
-  VerifyCode: { type: Number, unique: true },
+  VerifyCode: { type: String, unique: true },
   role: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Role",
-    default: "61ab538c37cb9240335f5d0a"
+    default: "61c42b1a2af5b34f26df832a"
   },
   isDel: { type: Boolean, default: false },
   timestamp: { type: Date, default: Date.now }
