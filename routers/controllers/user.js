@@ -226,5 +226,6 @@ module.exports = {
   items,
   item,
   createItem,
-  review
+  review,
+  addFavorite
 };

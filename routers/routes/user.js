@@ -7,7 +7,8 @@ const {
   items,
   item,
   createItem,
-  review
+  review,
+  addFavorite
 } = require("../controllers/user");
 
 const userRouter = express.Router();
@@ -20,6 +21,7 @@ userRouter.get("/items/:category", items);
 userRouter.get("/item/:id", item);
 userRouter.post("/createItem", createItem);
 userRouter.post("/review", review);
+userRouter.post("/addFavorite", addFavorite);
 
 
 
