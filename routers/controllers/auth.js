@@ -8,7 +8,6 @@ const mailgun = require("mailgun-js");
 const DOMAIN = "sandbox093b95b4aa3d4d5abdba1595e7d10442.mailgun.org";
 const mg = mailgun({ apiKey: process.env.api_key, domain: DOMAIN });
 
-
 // Check if email exist
 const checkEmail = (req, res) => {
   const savedEmail = email.toLowerCase();
