@@ -11,7 +11,9 @@ const {
   addFavorite,
   bill,
   editProfile,
-  editItem
+  editItem,
+  unable,
+  deleteFavorite
 } = require("../controllers/user");
 
 const userRouter = express.Router();
@@ -28,5 +30,7 @@ userRouter.post("/addFavorite", addFavorite);
 userRouter.post("/bill", bill);
 userRouter.put("/editProfile", editProfile);
 userRouter.put("/editItem", editItem);
+userRouter.put("/unable", unable);
+userRouter.delete("/deleteFavorite/:id", deleteFavorite);
 
 module.exports = userRouter;

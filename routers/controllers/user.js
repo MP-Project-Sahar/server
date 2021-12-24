@@ -245,7 +245,7 @@ const bill = (req, res) => {
 const editProfile = (req, res) => {
   const { id, firstName, lastName, avatar, city, bio } = req.body;
 
-  postModel
+  userModel
     .findOneAndUpdate(
       { _id: id },
       { firstName, lastName, avatar, city, bio },
@@ -278,7 +278,7 @@ const editItem = (req, res) => {
     available
   } = req.body;
 
-  postModel
+  itemModel
     .findOneAndUpdate(
       { _id: id },
       {
@@ -306,6 +306,38 @@ const editItem = (req, res) => {
     });
 };
 
+// Unable account
+const unable = (req, res) => {
+  const { id, active } = req.body;
+
+  userModel
+    .findOneAndUpdate({ _id: id }, { active }, { new: true })
+    .then((result) => {
+      if (result) {
+        res.status(200).send("Unable successfully✅");
+      } else {
+        res.status(404).send("Failed⚠️");
+      }
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
+// Delete favorite
+const deleteFavorite = (req, res) => {
+  const { id } = req.params;
+
+  favoriteModel
+    .findOneAndDelete({ _id: id })
+    .then((result) => {
+      res.status(201).send(result);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
 module.exports = {
   profile,
   favorites,
@@ -318,5 +350,7 @@ module.exports = {
   addFavorite,
   bill,
   editProfile,
-  editItem
+  editItem,
+  unable,
+  deleteFavorite
 };
