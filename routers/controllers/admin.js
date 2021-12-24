@@ -47,7 +47,7 @@ const editItem = (req, res) => {
   const {
     id,
     coverImg,
-    img,
+    imgs,
     title,
     category,
     desc,
@@ -64,7 +64,7 @@ const editItem = (req, res) => {
       { _id: id },
       {
         coverImg,
-        img,
+        imgs,
         title,
         category,
         desc,

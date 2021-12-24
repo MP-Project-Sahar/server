@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
   coverImg: { type: String, required: true },
-  img: { type: String },
+  imgs: { type: Array },
   title: { type: String, required: true },
   category: { type: String, required: true },
   desc: { type: String, required: true },
@@ -10,7 +10,7 @@ const itemSchema = new mongoose.Schema({
   priceWeek: { type: Number },
   priceMonth: { type: Number },
   postCode: { type: Number, required: true },
-  available: { type: Boolean, default: false },
+  available: { type: Boolean, default: true },
   renter: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   isDel: { type: Boolean, default: false },
   timestamp: { type: Date, default: Date.now }

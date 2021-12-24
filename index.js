@@ -20,11 +20,14 @@ app.use(cors());
 const roleRouter = require("./routers/routes/role");
 app.use(roleRouter);
 
+const authRouter = require("./routers/routes/auth");
+app.use(authRouter);
+
 const adminRouter = require("./routers/routes/admin");
 app.use(adminRouter);
 
-const authRouter = require("./routers/routes/auth");
-app.use(authRouter);
+const userRouter = require("./routers/routes/user");
+app.use(userRouter);
 
 // Set port, listen for requests
 app.listen(process.env.PORT || 5000, () => {
