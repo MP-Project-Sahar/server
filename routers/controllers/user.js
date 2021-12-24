@@ -188,6 +188,20 @@ const createItem = (req, res) => {
     });
 };
 
+// Review user
+const review = (req, res) => {
+  const { renter, owner, rate, reviw } = req.body;
+
+  const newReviw = new reviewModel({ renter, owner, rate, reviw });
+  newReviw
+    .save()
+    .then((result) => {
+      res.status(201).send(result);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
 
 module.exports = {
   profile,
@@ -197,4 +211,5 @@ module.exports = {
   items,
   item,
   createItem,
+  review
 };

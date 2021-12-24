@@ -6,7 +6,8 @@ const {
   usersProfile,
   items,
   item,
-  createItem
+  createItem,
+  review
 } = require("../controllers/user");
 
 const userRouter = express.Router();
@@ -18,6 +19,7 @@ userRouter.get("/usersProfile/:id", usersProfile);
 userRouter.get("/items/:category", items);
 userRouter.get("/item/:id", item);
 userRouter.post("/createItem", createItem);
+userRouter.post("/review", review);
 
 
 
