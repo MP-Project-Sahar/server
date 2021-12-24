@@ -10,7 +10,8 @@ const {
   review,
   addFavorite,
   bill,
-  editProfile
+  editProfile,
+  editItem
 } = require("../controllers/user");
 
 const userRouter = express.Router();
@@ -26,8 +27,6 @@ userRouter.post("/review", review);
 userRouter.post("/addFavorite", addFavorite);
 userRouter.post("/bill", bill);
 userRouter.put("/editProfile", editProfile);
-
-
-
+userRouter.put("/editItem", editItem);
 
 module.exports = userRouter;
