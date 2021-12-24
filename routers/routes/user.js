@@ -8,7 +8,8 @@ const {
   item,
   createItem,
   review,
-  addFavorite
+  addFavorite,
+  bill
 } = require("../controllers/user");
 
 const userRouter = express.Router();
@@ -22,6 +23,7 @@ userRouter.get("/item/:id", item);
 userRouter.post("/createItem", createItem);
 userRouter.post("/review", review);
 userRouter.post("/addFavorite", addFavorite);
+userRouter.post("/bill", bill);
 
 
 

@@ -2,6 +2,7 @@ const userModel = require("./../../db/models/user");
 const itemModel = require("./../../db/models/item");
 const reviewModel = require("./../../db/models/review");
 const favoriteModel = require("./../../db/models/favorite");
+const billModel = require("./../../db/models/bill");
 
 // Show user profile
 const profile = (req, res) => {
@@ -56,7 +57,7 @@ const favorites = (req, res) => {
 const rentals = (req, res) => {
   const { id } = req.params;
 
-  favoriteModel
+  billModel
     .find({
       renter: id
       // user: req.token.id,
@@ -218,6 +219,28 @@ const addFavorite = (req, res) => {
     });
 };
 
+// Create bill
+const bill = (req, res) => {
+  const { item, renter, owner, price, startDate, endDate } = req.body;
+
+  const newBill = new billModel({
+    item,
+    renter,
+    owner,
+    price,
+    startDate,
+    endDate
+  });
+  newBill
+    .save()
+    .then((result) => {
+      res.status(201).send(result);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
 module.exports = {
   profile,
   favorites,
@@ -227,5 +250,6 @@ module.exports = {
   item,
   createItem,
   review,
-  addFavorite
+  addFavorite,
+  bill
 };
