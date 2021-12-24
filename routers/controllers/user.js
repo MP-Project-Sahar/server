@@ -241,6 +241,28 @@ const bill = (req, res) => {
     });
 };
 
+// Create bill
+const editProfile = (req, res) => {
+  const { id, firstName, lastName, avatar, city, bio } = req.body;
+
+  postModel
+    .findOneAndUpdate(
+      { _id: id },
+      { firstName, lastName, avatar, city, bio },
+      { new: true }
+    )
+    .then((result) => {
+      if (result) {
+        res.status(200).send("Updated successfully✅");
+      } else {
+        res.status(404).send("Failed update⚠️");
+      }
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
 module.exports = {
   profile,
   favorites,
@@ -251,5 +273,6 @@ module.exports = {
   createItem,
   review,
   addFavorite,
-  bill
+  bill,
+  editProfile
 };
