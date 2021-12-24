@@ -1,6 +1,7 @@
 const userModel = require("./../../db/models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const emailvalidator = require("email-validator");
 require("dotenv").config();
 const secret = process.env.secretKey;
 
@@ -10,43 +11,70 @@ const mg = mailgun({ apiKey: process.env.api_key, domain: DOMAIN });
 
 // Check if email exist
 const checkEmail = (req, res) => {
+  const { email } = req.body;
   const savedEmail = email.toLowerCase();
-  userModel
-    .findOne({
-      email: savedEmail
-    })
-    .then((result) => {
-      if (result) {
-        res.status(200).send("Found");
-      }
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+
+  if (emailvalidator.validate(savedEmail)) {
+    userModel
+      .findOne({
+        email: savedEmail
+      })
+      .then((result) => {
+        if (result) {
+          res.status(200).send("Found");
+        } else {
+          res.status(400).send("Not Found");
+        }
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  } else {
+    res.status(400).send("Invalid Email");
+  }
 };
 
 // Signup
 const signup = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
 
+  /*
+  At least 8 characters long
+    2 letters
+    2 digits
+    1 Upper case
+    1 Lower case
+    1 Symbol 
+  */
+  const regexPassword =
+    /^(?=(.*\d){2})(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z\d]).{8,}$/;
+
   const savedEmail = email.toLowerCase();
-  const hashedPassword = await bcrypt.hash(password, Number(process.env.SALT));
 
-  const newUser = new userModel({
-    email: savedEmail,
-    password: hashedPassword,
-    firstName,
-    lastName
-  });
+  if (password.match(regexPassword)) {
+    const hashedPassword = await bcrypt.hash(
+      password,
+      Number(process.env.SALT)
+    );
 
-  newUser
-    .save()
-    .then((result) => {
-      res.status(200).send(result);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
+    const newUser = new userModel({
+      email: savedEmail,
+      password: hashedPassword,
+      firstName,
+      lastName
     });
+
+    newUser
+      .save()
+      .then((result) => {
+        res.status(200).send(result);
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  } else {
+    res.status(400).send("Invalid password, make it more complex");
+  }
 };
 
 // Login
@@ -110,7 +138,7 @@ const forgotPassword = (req, res) => {
         to: savedEmail,
         subject: "Reset Passwoed",
         html: `<h2>Reset Password</h2>
-          <a href="${process.env.URL}/resetPassword">Reset your password</a>
+          <a href="${process.env.URL}/resetPassword">Reset your password </a>
           `
       };
       userModel
