@@ -97,7 +97,8 @@ const login = (req, res) => {
             const payload = {
               id: result._id,
               role: result.role,
-              isDel: result.isDel
+              isDel: result.isDel,
+              active: result.active
             };
             const options = { expiresIn: "1h" };
             const token = await jwt.sign(payload, secret, options);
