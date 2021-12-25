@@ -35,6 +35,23 @@ const editUser = (req, res) => {
       { new: true }
     )
     .then((result) => {
+      if (result.isDel) {
+        itemModel
+          .updateMany({ user: id }, { $set: { isDel: true } })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+        reviewModel
+          .updateMany({ user: id }, { $set: { isLiked: false } })
+          .then(() => {
+            res.status(200).send("Deleted successfully✅");
+          })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+      } else if (result.isDel === false) {
+        res.status(400).send("Already deleted");
+      }
       res.status(200).send(result);
     })
     .catch((err) => {
