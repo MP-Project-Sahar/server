@@ -81,4 +81,91 @@ const createItem = (req, res) => {
     });
 };
 
-module.exports = { items, item, createItem };
+// Edit item
+const editItem = (req, res) => {
+  const {
+    id,
+    coverImg,
+    imgs,
+    title,
+    desc,
+    priceDay,
+    priceWeek,
+    priceMonth,
+    postCode,
+    available
+  } = req.body;
+
+  itemModel
+    .findOneAndUpdate(
+      { _id: id },
+      {
+        coverImg,
+        imgs,
+        title,
+        desc,
+        priceDay,
+        priceWeek,
+        priceMonth,
+        postCode,
+        available
+      },
+      { new: true }
+    )
+    .then((result) => {
+      if (result) {
+        res.status(200).send("Updated successfully✅");
+      } else {
+        res.status(404).send("Failed update⚠️");
+      }
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
+
+// Edit item for admin
+const editItemAdmin = (req, res) => {
+  const {
+    id,
+    coverImg,
+    imgs,
+    title,
+    category,
+    desc,
+    priceDay,
+    priceWeek,
+    priceMonth,
+    postCode,
+    available,
+    isDel
+  } = req.body;
+
+  itemModel
+    .findOneAndUpdate(
+      { _id: id },
+      {
+        coverImg,
+        imgs,
+        title,
+        category,
+        desc,
+        priceDay,
+        priceWeek,
+        priceMonth,
+        postCode,
+        available,
+        isDel
+      },
+      { new: true }
+    )
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(304).send(err);
+    });
+};
+
+module.exports = { items, item, createItem, editItem, editItemAdmin };

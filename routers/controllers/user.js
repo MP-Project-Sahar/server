@@ -169,48 +169,6 @@ const editProfile = (req, res) => {
     });
 };
 
-// Edit item
-const editItem = (req, res) => {
-  const {
-    id,
-    coverImg,
-    imgs,
-    title,
-    desc,
-    priceDay,
-    priceWeek,
-    priceMonth,
-    postCode,
-    available
-  } = req.body;
-
-  itemModel
-    .findOneAndUpdate(
-      { _id: id },
-      {
-        coverImg,
-        imgs,
-        title,
-        desc,
-        priceDay,
-        priceWeek,
-        priceMonth,
-        postCode,
-        available
-      },
-      { new: true }
-    )
-    .then((result) => {
-      if (result) {
-        res.status(200).send("Updated successfully✅");
-      } else {
-        res.status(404).send("Failed update⚠️");
-      }
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
-};
 
 // Unable account
 const unable = (req, res) => {
@@ -249,11 +207,9 @@ module.exports = {
   favorites,
   rentals,
   usersProfile,
-  review,
   addFavorite,
   bill,
   editProfile,
-  editItem,
   unable,
   deleteFavorite
 };

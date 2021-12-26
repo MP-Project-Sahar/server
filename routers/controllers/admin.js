@@ -59,48 +59,5 @@ const editUser = (req, res) => {
     });
 };
 
-// Edit item information
-const editItem = (req, res) => {
-  const {
-    id,
-    coverImg,
-    imgs,
-    title,
-    category,
-    desc,
-    priceDay,
-    priceWeek,
-    priceMonth,
-    postCode,
-    available,
-    isDel
-  } = req.body;
-
-  itemModel
-    .findOneAndUpdate(
-      { _id: id },
-      {
-        coverImg,
-        imgs,
-        title,
-        category,
-        desc,
-        priceDay,
-        priceWeek,
-        priceMonth,
-        postCode,
-        available,
-        isDel
-      },
-      { new: true }
-    )
-    .then((result) => {
-      res.status(200).send(result);
-    })
-    .catch((err) => {
-      res.status(304).send(err);
-    });
-};
-
 
 module.exports = { users, editUser, editItem };
