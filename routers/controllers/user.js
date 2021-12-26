@@ -64,7 +64,8 @@ const usersProfile = (req, res) => {
 
 // Edit user's profile
 const editProfile = (req, res) => {
-  const { id, firstName, lastName, avatar, city, bio } = req.body;
+  const { id } = req.params;
+  const { firstName, lastName, avatar, city, bio } = req.body;
 
   userModel
     .findOneAndUpdate(
@@ -86,7 +87,8 @@ const editProfile = (req, res) => {
 
 // Unable account
 const unable = (req, res) => {
-  const { id, active } = req.body;
+  const { id } = req.params;
+  const { active } = req.body;
 
   userModel
     .findOneAndUpdate({ _id: id }, { active }, { new: true })
@@ -164,7 +166,7 @@ const editUser = (req, res) => {
           .catch((err) => {
             res.status(400).send(err);
           });
-      } else if (result.isDel === false) {
+      } else if (!result.isDel) {
         res.status(400).send("Already deleted");
       }
       res.status(200).send(result);

@@ -83,8 +83,8 @@ const createItem = (req, res) => {
 
 // Edit item
 const editItem = (req, res) => {
+  const { id } = req.params;
   const {
-    id,
     coverImg,
     imgs,
     title,
@@ -126,8 +126,8 @@ const editItem = (req, res) => {
 
 // Edit item for admin
 const editItemAdmin = (req, res) => {
+  const { id } = req.params;
   const {
-    id,
     coverImg,
     imgs,
     title,

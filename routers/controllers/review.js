@@ -2,9 +2,10 @@ const reviewModel = require("./../../db/models/review");
 
 // Review user
 const review = (req, res) => {
-  const { renter, owner, rate, reviw } = req.body;
+  const { id } = req.params;
+  const { owner, rate, review } = req.body;
 
-  const newReviw = new reviewModel({ renter, owner, rate, reviw });
+  const newReviw = new reviewModel({ renter: id, owner, rate, review });
   newReviw
     .save()
     .then((result) => {

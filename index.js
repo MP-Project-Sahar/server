@@ -23,9 +23,6 @@ app.use(roleRouter);
 const authRouter = require("./routers/routes/auth");
 app.use(authRouter);
 
-const adminRouter = require("./routers/routes/admin");
-app.use(adminRouter);
-
 const userRouter = require("./routers/routes/user");
 app.use(userRouter);
 

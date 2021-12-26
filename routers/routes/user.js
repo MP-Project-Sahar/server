@@ -14,9 +14,9 @@ const userRouter = express.Router();
 
 userRouter.get("/profile/:id", profile);
 userRouter.get("/usersProfile/:id", usersProfile);
-userRouter.put("/editProfile", editProfile);
-userRouter.put("/unable", unable);
+userRouter.patch("/editProfile/:id", editProfile);
+userRouter.patch("/unable/:id", unable);
 userRouter.get("/users", users); // just admin
-userRouter.put("/editUser", editUser); // just admin
+userRouter.patch("/editUser/:id", editUser); // just admin
 
 module.exports = userRouter;
