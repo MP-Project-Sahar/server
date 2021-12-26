@@ -102,18 +102,5 @@ const editItem = (req, res) => {
     });
 };
 
-// Edit review information
-const editReview = (req, res) => {
-  const { id, rate, review, isDel } = req.body;
 
-  reviewModel
-    .findOneAndUpdate({ _id: id }, { owner, review, isDel }, { new: true })
-    .then((result) => {
-      res.status(200).send(result);
-    })
-    .catch((err) => {
-      res.status(304).send(err);
-    });
-};
-
-module.exports = { users, editUser, editItem, editReview };
+module.exports = { users, editUser, editItem };

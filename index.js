@@ -32,6 +32,9 @@ app.use(userRouter);
 const itemRouter = require("./routers/routes/item");
 app.use(itemRouter);
 
+const reviewRouter = require("./routers/routes/review");
+app.use(reviewRouter);
+
 // Set port, listen for requests
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server on ${process.env.PORT}`);

@@ -108,20 +108,7 @@ const usersProfile = (req, res) => {
     });
 };
 
-// Review user
-const review = (req, res) => {
-  const { renter, owner, rate, reviw } = req.body;
 
-  const newReviw = new reviewModel({ renter, owner, rate, reviw });
-  newReviw
-    .save()
-    .then((result) => {
-      res.status(201).send(result);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
-};
 
 // Add to favorite
 const addFavorite = (req, res) => {
@@ -262,9 +249,6 @@ module.exports = {
   favorites,
   rentals,
   usersProfile,
-  items,
-  item,
-  createItem,
   review,
   addFavorite,
   bill,
