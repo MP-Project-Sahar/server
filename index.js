@@ -41,8 +41,6 @@ app.use(billRouter);
 const favoriteRouter = require("./routers/routes/favorite");
 app.use(favoriteRouter);
 
-
-
 // Set port, listen for requests
 app.listen(process.env.PORT || 5000, () => {
   console.log(`Server on ${process.env.PORT}`);

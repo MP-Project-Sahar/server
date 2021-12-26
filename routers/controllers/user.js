@@ -108,31 +108,6 @@ const usersProfile = (req, res) => {
     });
 };
 
-
-
-
-// Create bill
-const bill = (req, res) => {
-  const { item, renter, owner, price, startDate, endDate } = req.body;
-
-  const newBill = new billModel({
-    item,
-    renter,
-    owner,
-    price,
-    startDate,
-    endDate
-  });
-  newBill
-    .save()
-    .then((result) => {
-      res.status(201).send(result);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
-};
-
 // Edit user's profile
 const editProfile = (req, res) => {
   const { id, firstName, lastName, avatar, city, bio } = req.body;
@@ -155,7 +130,6 @@ const editProfile = (req, res) => {
     });
 };
 
-
 // Unable account
 const unable = (req, res) => {
   const { id, active } = req.body;
@@ -174,15 +148,70 @@ const unable = (req, res) => {
     });
 };
 
+// Show all users for admin
+const users = (req, res) => {
+  userModel
+    .find({})
+    .populate("role")
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
+// Edit user information for admin
+const editUser = (req, res) => {
+  const {
+    id,
+    email,
+    password,
+    fristName,
+    lastName,
+    phoneNumber,
+    active,
+    isDel
+  } = req.body;
+
+  userModel
+    .findOneAndUpdate(
+      { _id: id },
+      { email, password, fristName, lastName, phoneNumber, active, isDel },
+      { new: true }
+    )
+    .then((result) => {
+      if (result.isDel) {
+        itemModel
+          .updateMany({ user: id }, { $set: { isDel: true } })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+        reviewModel
+          .updateMany({ user: id }, { $set: { isLiked: false } })
+          .then(() => {
+            res.status(200).send("Deleted successfully✅");
+          })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
+      } else if (result.isDel === false) {
+        res.status(400).send("Already deleted");
+      }
+      res.status(200).send(result);
+    })
+    .catch((err) => {
+      res.status(304).send(err);
+    });
+};
 
 module.exports = {
   profile,
   favorites,
   rentals,
   usersProfile,
-  addFavorite,
-  bill,
   editProfile,
   unable,
-  deleteFavorite
+  users,
+  editUser
 };
