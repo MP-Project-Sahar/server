@@ -13,8 +13,6 @@ const {
 const userRouter = express.Router();
 
 userRouter.get("/profile/:id", profile);
-userRouter.get("/favorites/:id", favorites);
-userRouter.get("/rentals/:id", rentals);
 userRouter.get("/usersProfile/:id", usersProfile);
 userRouter.put("/editProfile", editProfile);
 userRouter.put("/unable", unable);

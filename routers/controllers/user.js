@@ -1,8 +1,6 @@
 const userModel = require("./../../db/models/user");
 const itemModel = require("./../../db/models/item");
 const reviewModel = require("./../../db/models/review");
-const favoriteModel = require("./../../db/models/favorite");
-const billModel = require("./../../db/models/bill");
 
 // Show user profile
 const profile = (req, res) => {
@@ -24,50 +22,6 @@ const profile = (req, res) => {
         }
       } else {
         res.status(404).send("Not found the user");
-      }
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
-};
-
-// Show user's favorite
-const favorites = (req, res) => {
-  const { id } = req.params;
-
-  favoriteModel
-    .find({
-      user: id
-      // user: req.token.id,
-    })
-    .populate("itemLiked renterLiked")
-    .then((result) => {
-      if (result.length > 0) {
-        res.status(200).send(result);
-      } else {
-        res.status(404).send("You've got no favourites!");
-      }
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
-};
-
-// Show user's rentals
-const rentals = (req, res) => {
-  const { id } = req.params;
-
-  billModel
-    .find({
-      renter: id
-      // user: req.token.id,
-    })
-    .populate("item owner")
-    .then((result) => {
-      if (result.length > 0) {
-        res.status(200).send(result);
-      } else {
-        res.status(404).send("No rentals yet");
       }
     })
     .catch((err) => {
@@ -152,9 +106,24 @@ const unable = (req, res) => {
 const users = (req, res) => {
   userModel
     .find({})
-    .populate("role")
-    .then((result) => {
-      res.status(200).send(result);
+    .then(async (result) => {
+      if (result) {
+        const userItems = await itemModel.find({});
+        const userReview = await reviewModel.find({});
+        if (userItems.length > 0 && userReview.length > 0) {
+          res.status(200).send({ result, userItems, userReview });
+        } else if (userItems.length > 0) {
+          res.status(200).send({ result, userItems });
+        } else if (userReview.length > 0) {
+          res.status(200).send({ result, userReview });
+        } else {
+          res
+            .status(200)
+            .send({ result, message: "store and review are empty" });
+        }
+      } else {
+        res.status(404).send("Not found the user");
+      }
     })
     .catch((err) => {
       res.status(400).send(err);
@@ -207,8 +176,6 @@ const editUser = (req, res) => {
 
 module.exports = {
   profile,
-  favorites,
-  rentals,
   usersProfile,
   editProfile,
   unable,
