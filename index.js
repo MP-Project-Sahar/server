@@ -23,11 +23,20 @@ app.use(roleRouter);
 const authRouter = require("./routers/routes/auth");
 app.use(authRouter);
 
-const adminRouter = require("./routers/routes/admin");
-app.use(adminRouter);
-
 const userRouter = require("./routers/routes/user");
 app.use(userRouter);
+
+const itemRouter = require("./routers/routes/item");
+app.use(itemRouter);
+
+const reviewRouter = require("./routers/routes/review");
+app.use(reviewRouter);
+
+const billRouter = require("./routers/routes/bill");
+app.use(billRouter);
+
+const favoriteRouter = require("./routers/routes/favorite");
+app.use(favoriteRouter);
 
 // Set port, listen for requests
 app.listen(process.env.PORT || 5000, () => {
