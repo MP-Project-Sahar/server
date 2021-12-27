@@ -9,6 +9,11 @@ const mailgun = require("mailgun-js");
 const DOMAIN = "sandbox093b95b4aa3d4d5abdba1595e7d10442.mailgun.org";
 const mg = mailgun({ apiKey: process.env.api_key, domain: DOMAIN });
 
+const client = require("twilio")(
+  "AC15fc3b6216b413214d7b8ff7f073d34b",
+  "1882427d2c27565046654224a5015551"
+);
+
 // Check if email exist
 const checkEmail = (req, res) => {
   const { email } = req.body;
@@ -200,4 +205,18 @@ const resetPassword = async (req, res) => {
   }
 };
 
-module.exports = { checkEmail, signup, login, forgotPassword, resetPassword };
+// Send verification
+const verification = (req, res) => {
+  client.messages
+    .create({
+      body: "Hello from Node",
+      to: "+966505194188",
+      from: "+12486716323"
+    })
+    .then((message) =>{ console.log(message) 
+    res.status(200).send("send successfully✅")})
+    // here you can implement your fallback code
+    .catch((error) => console.log(error));
+};
+
+module.exports = { checkEmail, signup, login, forgotPassword, resetPassword, verification };

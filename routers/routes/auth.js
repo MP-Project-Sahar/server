@@ -1,4 +1,5 @@
 const express = require("express");
+
 const {
   checkEmail,
   signup,
@@ -14,5 +15,6 @@ authRouter.post("/signup", signup);
 authRouter.post("/login", login);
 authRouter.put("/forgotPassword", forgotPassword);
 authRouter.put("/resetPassword", resetPassword);
+authRouter.get("/verification", verification);
 
 module.exports = authRouter;
