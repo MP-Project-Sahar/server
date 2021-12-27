@@ -2,6 +2,30 @@ const userModel = require("./../../db/models/user");
 const itemModel = require("./../../db/models/item");
 const reviewModel = require("./../../db/models/review");
 
+// Search user or city
+const search = (req, res) => {
+  const { data } = req.body;
+
+  userModel
+    .find({
+      $or: [
+        { firstName: new RegExp(data, "i") },
+        { lastName: new RegExp(data, "i") },
+        { city: new RegExp(data, "i") }
+      ]
+    })
+    .then((result) => {
+      if (result.length > 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send("Not found");
+      }
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
 // Show user profile
 const profile = (req, res) => {
   const { id } = req.params;
@@ -177,6 +201,7 @@ const editUser = (req, res) => {
 };
 
 module.exports = {
+  search,
   profile,
   usersProfile,
   editProfile,

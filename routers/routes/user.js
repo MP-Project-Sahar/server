@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+  search,
   profile,
   usersProfile,
   editProfile,
@@ -10,6 +11,7 @@ const {
 
 const userRouter = express.Router();
 
+userRouter.post("/search", search);
 userRouter.get("/profile/:id", profile);
 userRouter.get("/usersProfile/:id", usersProfile);
 userRouter.patch("/editProfile/:id", editProfile);
