@@ -182,5 +182,5 @@ module.exports = {
   editProfile,
   unable,
   users,
-  editUser
+  editUser,
 };

@@ -1,13 +1,11 @@
 const express = require("express");
 const {
   profile,
-  favorites,
-  rentals,
   usersProfile,
   editProfile,
   unable,
   users,
-  editUser
+  editUser,
 } = require("../controllers/user");
 
 const userRouter = express.Router();
