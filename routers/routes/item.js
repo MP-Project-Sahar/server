@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+  search,
   items,
   item,
   createItem,
@@ -9,6 +10,7 @@ const {
 
 const itemRouter = express.Router();
 
+itemRouter.post("/search", search);
 itemRouter.post("/createItem", createItem);
 itemRouter.get("/items/:category", items);
 itemRouter.get("/item/:id", item);

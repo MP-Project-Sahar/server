@@ -1,5 +1,28 @@
 const itemModel = require("./../../db/models/item");
 
+// Search item
+const search = (req, res) => {
+  const { data } = req.body;
+
+  userModel
+    .find({
+      $or: [
+        { title: new RegExp(data, "i") },
+        { category: new RegExp(data, "i") }
+      ]
+    })
+    .then((result) => {
+      if (result.length > 0) {
+        res.status(200).send(result);
+      } else {
+        res.status(404).send("Not found");
+      }
+    })
+    .catch((err) => {
+      res.status(400).send(err);
+    });
+};
+
 // Show items by category
 const items = (req, res) => {
   const { category } = req.params;
@@ -167,4 +190,4 @@ const editItemAdmin = (req, res) => {
     });
 };
 
-module.exports = { items, item, createItem, editItem, editItemAdmin };
+module.exports = { search, items, item, createItem, editItem, editItemAdmin };
