@@ -1,36 +1,20 @@
 const express = require("express");
 const {
   profile,
-  favorites,
-  rentals,
   usersProfile,
-  items,
-  item,
-  createItem,
-  review,
-  addFavorite,
-  bill,
   editProfile,
-  editItem,
   unable,
-  deleteFavorite
+  users,
+  editUser,
 } = require("../controllers/user");
 
 const userRouter = express.Router();
 
 userRouter.get("/profile/:id", profile);
-userRouter.get("/favorites/:id", favorites);
-userRouter.get("/rentals/:id", rentals);
 userRouter.get("/usersProfile/:id", usersProfile);
-userRouter.get("/items/:category", items);
-userRouter.get("/item/:id", item);
-userRouter.post("/createItem", createItem);
-userRouter.post("/review", review);
-userRouter.post("/addFavorite", addFavorite);
-userRouter.post("/bill", bill);
-userRouter.put("/editProfile", editProfile);
-userRouter.put("/editItem", editItem);
-userRouter.put("/unable", unable);
-userRouter.delete("/deleteFavorite/:id", deleteFavorite);
+userRouter.patch("/editProfile/:id", editProfile);
+userRouter.patch("/unable/:id", unable);
+userRouter.get("/users", users); // just admin
+userRouter.patch("/editUser/:id", editUser); // just admin
 
 module.exports = userRouter;
